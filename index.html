@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OOP DartPad - Yoza</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background: linear-gradient(to bottom, #87CEEB, #EAF6FF);
+}
+
+.identitas {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 3px solid #1890ff;
+}
+
+h1 {
+    text-align: center;
+    color: #0050b3;
+}
+
+.program {
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.run-btn {
+    background: #1890ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.run-btn:hover {
+    background: #0050b3;
+}
+
+.dart-iframe {
+    display: none;
+    width: 100%;
+    height: 500px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 2px solid #1890ff;
+}
+</style>
+
+<script>
+function showDartPad(id) {
+    let frame = document.getElementById(id);
+
+    // toggle (klik lagi bisa tutup)
+    if (frame.style.display === "block") {
+        frame.style.display = "none";
+    } else {
+        frame.style.display = "block";
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="identitas">
+<h2>Yoza Ulpia Rafila | 251410004 | SI2A</h2>
+</div>
+
+<h1>Object Oriented Programming (OOP)</h1>
+
+<!-- TEMPLATE PROGRAM -->
+<!-- COPY INI UNTUK SEMUA -->
+
+<div class="program">
+<h2>Program 1</h2>
+<button class="run-btn" onclick="showDartPad('f1')">Run Program</button>
+<iframe id="f1" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=550525203c872b397e5c6ae2a6a4ced9&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 2</h2>
+<button class="run-btn" onclick="showDartPad('f2')">Run Program</button>
+<iframe id="f2" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=f86f2246659a2e77a515a65b8cc7abcd&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 3</h2>
+<button class="run-btn" onclick="showDartPad('f3')">Run Program</button>
+<iframe id="f3" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=26544b304307ed584b4e734cd27f9723&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 4</h2>
+<button class="run-btn" onclick="showDartPad('f4')">Run Program</button>
+<iframe id="f4" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=1ebe066c155e94c737e65c0ebe53a4c7&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 5</h2>
+<button class="run-btn" onclick="showDartPad('f5')">Run Program</button>
+<iframe id="f5" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=c9d919487ce75958bf288264ab716373&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 6</h2>
+<button class="run-btn" onclick="showDartPad('f6')">Run Program</button>
+<iframe id="f6" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=48fa9a1afa4b1c8eae76f66253d0391b&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 7</h2>
+<button class="run-btn" onclick="showDartPad('f7')">Run Program</button>
+<iframe id="f7" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=7510a711bb08e5b2ece01998cb8243d7&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 8</h2>
+<button class="run-btn" onclick="showDartPad('f8')">Run Program</button>
+<iframe id="f8" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=9c7431804892ef219516f09f0561930b&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 9</h2>
+<button class="run-btn" onclick="showDartPad('f9')">Run Program</button>
+<iframe id="f9" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=67f48511fb093af4d7591863c5a1c487&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 10</h2>
+<button class="run-btn" onclick="showDartPad('f10')">Run Program</button>
+<iframe id="f10" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=a74f1c3ac868d754db4e267fca14ba1e&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 11</h2>
+<button class="run-btn" onclick="showDartPad('f11')">Run Program</button>
+<iframe id="f11" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=cbd0ff441aafe0e12257a67f62ee3675&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 12</h2>
+<button class="run-btn" onclick="showDartPad('f12')">Run Program</button>
+<iframe id="f12" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=e7d755865802c6abe5bcf509767f9708&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 13</h2>
+<button class="run-btn" onclick="showDartPad('f13')">Run Program</button>
+<iframe id="f13" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=87b498566d4a11d2325de66d1f81a5cc&run=true&theme=dark"></iframe>
+</div>
+
+<div class="program">
+<h2>Program 14</h2>
+<button class="run-btn" onclick="showDartPad('f14')">Run Program</button>
+<iframe id="f14" class="dart-iframe"
+src="https://dartpad.dev/embed-dart.html?id=00f1495e175f2950b67a980213d03b65&run=true&theme=dark"></iframe>
+</div>
+
+</body>
+</html>
