@@ -539,11 +539,11 @@ void main() {
 // Kelas: SI2A
 
 abstract class Kendaraan {
-  String? merk;  // Field concrete
-  
-  void start();  // Method abstract
-  
-  void stop() {  // Method concrete
+  String? merk;
+
+  void start();
+
+  void stop() {
     print('Kendaraan berhenti');
   }
 }
@@ -551,25 +551,15 @@ abstract class Kendaraan {
 class Mobil extends Kendaraan {
   @override
   void start() {
-    print('Mobil ${merk ?? 'tanpa merk'} menyala');
-  }
-  
-  // Optional: override method stop jika ingin perilaku berbeda
-  @override
-  void stop() {
-    print('Mobil ${merk ?? 'tanpa merk'} berhenti');
+    print('Mobil $merk menyala');
   }
 }
 
 void main() {
-  Mobil mobil1 = Mobil();
-  mobil1.merk = 'Toyota';
-  mobil1.start();  // Output: Mobil Toyota menyala
-  mobil1.stop();   // Output: Mobil Toyota berhenti
-  
-  Mobil mobil2 = Mobil();
-  mobil2.start();  // Output: Mobil tanpa merk menyala
-  mobil2.stop();   // Output: Mobil tanpa merk berhenti
+  Mobil m = Mobil();
+  m.merk = "BMW"; // merk mobil
+  m.start();
+  m.stop();
 }
   </pre>
 
@@ -651,26 +641,26 @@ print("--------------------------------");
 // Nim: 251410009
 // Kelas: SI2A
 
-abstract interface class Flyable {
-  void terbang(); 
+interface class Flyable {
+  void terbang() => print('Terbang...');
 }
 
-class Bird implements Flyable {
+class KupuKupu implements Flyable {
   @override
-  void terbang() => print('Burung terbang tinggi');
+  void terbang() => print('Kupu-kupu terbang indah');
 }
 
-class Plane implements Flyable {
+class Drone implements Flyable {
   @override
-  void terbang() => print('Pesawat terbang cepat');
+  void terbang() => print('Drone terbang cepat');
 }
 
 void main() {
-  Bird burung = Bird();
-  Plane pesawat = Plane();
-  
-  burung.terbang();   // Output: Burung terbang tinggi
-  pesawat.terbang();  // Output: Pesawat terbang cepat
+  KupuKupu k = KupuKupu();
+  Drone d = Drone();
+
+  k.terbang();
+  d.terbang();
 }
   </pre>
 
@@ -1238,24 +1228,25 @@ class VideoPlayer extends MediaPlayer implements Playable, Pausable {
 }
 
 void main() {
-  List players = [
+  // gunakan tipe data yang jelas
+  List<MediaPlayer> players = [
     AudioPlayer(),
     VideoPlayer(),
   ];
 
   for (var p in players) {
     p.load('file.mp3 / file.mp4');
-  }
 
-  if (p is Playable) {
-    p.play();
-  }
+    if (p is Playable) {
+      p.play();
+    }
 
-  if (p is Pausable) {
-    p.pause();
-  }
+    if (p is Pausable) {
+      p.pause();
+    }
 
-  print('---');
+    print('---');
+  }
 }
       </pre>
       <button class="btn" onclick="openModal('00f1495e175f2950b67a980213d03b65')">
