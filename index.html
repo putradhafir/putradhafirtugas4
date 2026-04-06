@@ -593,25 +593,41 @@ void main() {
 // Kelas: SI2A
 
 abstract class AlatMusik {
-  void mainkan();  // Abstract method
-  
-  void info() {    // Concrete method
-    print('Ini adalah alat musik');
+  String nama;
+
+  // Constructor
+  AlatMusik(this.nama);
+
+  // Method abstract
+  void mainkan();
+
+  // Method concrete
+  void info() {
+    print('Ini adalah alat musik $nama');
   }
 }
 
 class Gitar extends AlatMusik {
+  // Constructor turunan
+  Gitar(String nama) : super(nama);
+
   @override
   void mainkan() {
-    print('Jreng jreng...');
+    print('Gitar $nama berbunyi: Jreng jreng...');
   }
 }
 
 void main() {
-  Gitar gitar = Gitar();
-  
-  gitar.mainkan();  // Output: Jreng jreng...
-  gitar.info();     // Output: Ini adalah alat musik
+print("=== Abstract Class Alat Musik ===");
+print("Nama  : Putra Dhafir Nashrullah");
+print("NIM   : 251410009");
+print("Kelas : SI2A");
+print("--------------------------------");
+
+  Gitar gitar = Gitar("Akustik");
+
+  gitar.info();
+  gitar.mainkan();
 }
   </pre>
 
