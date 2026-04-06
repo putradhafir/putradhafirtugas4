@@ -5,276 +5,231 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Polimorfisme dan Abstraksi</title>
+<style>
+body {
+  background: linear-gradient(to top, #87ceeb, #cfefff);
+  font-family: 'Orbitron', 'Segoe UI', 'Courier New', monospace;
+  color: #2c3e50;
+  line-height: 1.6;
+  padding: 40px 20px;
+  position: relative;
+}
 
+/* AWAN ANIMASI */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: url('https://i.ibb.co/7QpKsCX/clouds.png') repeat-x;
+  background-size: contain;
+  opacity: 0.5;
+  animation: awanGerak 80s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes awanGerak {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* JUDUL */
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  display: inline-block;
+  margin: 0 auto 30px;
+  padding-bottom: 5px;
+}
+
+/* IDENTITY */
+.identity {
+  background: rgba(255, 255, 255, 0.7);
+  border-left: 4px solid #4fc3f7;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  backdrop-filter: blur(6px);
+}
+
+/* SUBTITLE */
+h2 {
+  font-size: 1.8rem;
+  margin: 40px 0 20px 0;
+  border-left: 6px solid #4fc3f7;
+  padding-left: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 25px;
+  margin-bottom: 25px;
+  transition: all 0.25s ease;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* CODE */
+pre {
+  background: #eaf6ff;
+  border-radius: 16px;
+  padding: 18px;
+  font-size: 13px;
+  overflow-x: auto;
+  color: #2c3e50;
+}
+
+code {
+  background: #d6ecff;
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+/* BUTTON */
+.btn {
+  background: #4fc3f7;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #0288d1;
+}
+
+/* TABLE */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.comparison-table th {
+  background: #4fc3f7;
+  color: white;
+  padding: 14px;
+}
+
+.comparison-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* BADGE */
+.badge-is-a {
+  background: #e0f7fa;
+  color: #00796b;
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.badge-can-do {
+  background: #fff3e0;
+  color: #ef6c00;
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.check { color: green; }
+.cross { color: red; }
+
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 1000px;
+  margin: 5% auto;
+  border-radius: 28px;
+  padding: 20px;
+}
+
+.modal iframe {
+  width: 100%;
+  height: 550px;
+  border-radius: 18px;
+  border: none;
+}
+
+.close {
+  color: #333;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* HR */
+hr {
+  margin: 45px 0;
+  height: 2px;
+  border: none;
+  background: linear-gradient(90deg, transparent, #4fc3f7, transparent);
+}
+
+.info-card {
+  background: rgba(255,255,255,0.8);
+  border-left: 5px solid #4fc3f7;
+  padding: 15px;
+  border-radius: 14px;
+} 
   <style>
- body {
-      background: radial-gradient(circle at 20% 30%, #0a0f1e, #03060c);
-      font-family: 'Orbitron', 'Segoe UI', 'Courier New', monospace;
-      color: #ffe6b3;
-      line-height: 1.6;
-      padding: 40px 20px;
-      position: relative;
-    }
-
-    /* Background subtle stars animation */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
-                        radial-gradient(1px 1px at 60px 80px, #f8f3b0, rgba(0,0,0,0));
-      background-size: 200px 200px, 150px 150px;
-      background-repeat: repeat;
-      opacity: 0.3;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      position: relative;
-      z-index: 2;
-      backdrop-filter: blur(1px);
-    }
-
-    /* TITLE STAR WARS STYLE */
-    h1 {
-      text-align: center;
-      font-size: 3rem;
-      letter-spacing: 5px;
-      font-weight: 800;
-      text-transform: uppercase;
-      background: linear-gradient(135deg, #f5d742, #e6b422, #b97f10);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
-      margin-bottom: 5px;
-    }
-
-    .subtitle {
-      text-align: center;
-      font-family: monospace;
-      color: #ffdf8c;
-      border-bottom: 2px solid #f5c542;
-      display: inline-block;
-      width: auto;
-      margin: 0 auto 30px;
-      padding-bottom: 5px;
-      font-size: 1rem;
-      letter-spacing: 1px;
-    }
-
-    .identity {
-      background: rgba(0, 0, 0, 0.65);
-      border-left: 4px solid #ffcd4a;
-      padding: 12px 18px;
-      border-radius: 12px;
-      font-family: monospace;
-      margin-bottom: 25px;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin: 40px 0 20px 0;
-      border-left: 6px solid #ffcd4a;
-      padding-left: 15px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: #ffea9e;
-      text-shadow: 0 0 3px #b87c00;
-    }
-
-    /* CARD STYLE: Holocron / imperial panel */
-    .card {
-      background: rgba(12, 18, 28, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid #f5c54255;
-      border-radius: 24px;
-      padding: 25px;
-      margin-bottom: 25px;
-      transition: all 0.25s ease;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,215,0,0.1);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #ffcd4a;
-      box-shadow: 0 20px 30px -10px black;
-      background: rgba(8, 14, 22, 0.92);
-    }
-
-    pre {
-      background: #03060bd9;
-      border: 1px solid #f5b64244;
-      border-radius: 16px;
-      padding: 18px;
-      font-family: 'Fira Code', 'Courier New', monospace;
-      font-size: 13px;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      word-break: break-word;
-      color: #ffe2a4;
-      margin: 20px 0;
-      box-shadow: inset 0 0 8px #00000055;
-    }
-
-    code {
-      background: #00000066;
-      padding: 3px 8px;
-      border-radius: 8px;
-      font-family: monospace;
-      color: #ffcd7e;
-    }
-
-    .btn {
-      background: linear-gradient(90deg, #2a2418, #1f1a10);
-      border: 1px solid #ffcd4a;
-      color: #ffeaac;
-      padding: 8px 20px;
-      border-radius: 40px;
-      font-weight: bold;
-      font-family: 'Orbitron', monospace;
-      cursor: pointer;
-      transition: 0.2s;
-      margin-top: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-
-    .btn:hover {
-      background: #ffcd4a;
-      color: #0a0a0a;
-      border-color: #fff0b5;
-      box-shadow: 0 0 12px #f5b642;
-      text-shadow: none;
-    }
-
-    /* table battle */
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #0b1018cc;
-      border-radius: 20px;
-      overflow: hidden;
-      font-family: monospace;
-      backdrop-filter: blur(4px);
-    }
-
-    .comparison-table th {
-      background: #1f2a1bdd;
-      color: #ffdd88;
-      font-weight: bold;
-      padding: 14px;
-      border-bottom: 2px solid #f5b642;
-    }
-
-    .comparison-table td {
-      padding: 12px;
-      border-bottom: 1px solid #f5c54233;
-      color: #f9e0a0;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 2px 12px;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      font-weight: bold;
-    }
-
-    .badge-is-a { background: #003d33; color: #8effc2; border: 1px solid #2ecc71; }
-    .badge-can-do { background: #4a2c00; color: #ffbf69; border: 1px solid #ffa500; }
-    .check { color: #5eff9e; }
-    .cross { color: #ff7b72; }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #ffcd4a55;
-      font-size: 14px;
-      color: #c0b27a;
-    }
-
-    /* MODAL ala Death Star */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-    }
-
-    .modal-content {
-      background: #0b0e14e6;
-      width: 90%;
-      max-width: 1000px;
-      margin: 5% auto;
-      border-radius: 28px;
-      border: 1px solid #ffcd4a;
-      padding: 20px;
-      animation: fadeInUp 0.3s ease;
-    }
-
-    .modal iframe {
-      width: 100%;
-      height: 550px;
-      border-radius: 18px;
-      border: none;
-    }
-
-    .close {
-      color: #ffcd7e;
-      float: right;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .close:hover {
-      color: #ffdfa0;
-      text-shadow: 0 0 6px gold;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-
-    /* lightsaber horizontal rule */
-    hr {
-      margin: 45px 0;
-      border: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #f5c542, #ffcd4a, #f5c542, transparent);
-    }
-
-    .info-card {
-      background: #10161fcc;
-      border-left: 5px solid #ffb347;
-      padding: 15px;
-      border-radius: 14px;
-    }
-
-    ul, ol {
-      padding-left: 1.6rem;
-    }
-
-    li {
-      margin: 6px 0;
-    }
-  </style>
 </head>
 
 <body>
@@ -327,8 +282,6 @@ void main() {
       <h3>Pengantar Polimorfisme</h3>
       <p>Dart menyediakan beberapa mekanisme inisialisasi objek untuk berbagai kebutuhan arsitektur:</p>
       <ol>
-        <li><b>Arti:</b>  "Banyak bentuk" (poly = banyak, morph = bentuk)</li>
-        <li><b>Konsep:</b> Objek dari subclass dapat diperlakukan sebagai objek dari superclass</li>
         <li><b>Parameterized Constructor:</b> ClassName(this.param)</li>
         <li><b>Contoh:</b> Semua Kucing , Anjing , Burung adalah Hewan</li>
         <li><b> i.Compile-time polymorphism:</b> Method overloading (tidak didukung Dart)</li>
@@ -385,8 +338,8 @@ bentuk2.gambar();  // Output: Menggambar persegi
     <div class="card">
       <p>
        <ul><li>
-        is : Mengecek tipe objek
-        as : Casting tipe objek
+        is : Untuk memeriksa operator tipe objek
+        as : Untuk mengubah dan menyesuaikan tipe objek
        </li></ul>
       </p>
 
@@ -470,13 +423,10 @@ void main() {
 
     <h2> Pengantar Abstraksi</h2>
     <div class="card">
-<pre>
-Konsep: Menyembunyikan detail implementasi, hanya menunjukkan
-fungsionalitas
-Tujuan:
-i. Fokus pada "apa" bukan "bagaimana"
-ii. Kontrak yang harus dipenuhi
-iii. Fleksibilitas implementasi
+<pre> Dalam konsepPemrograman Berorientasi Objek (OOP), 
+      Abstraksi adalah proses penyembunyian detail 
+      implementasi yang rumit dan hanya menampilkan 
+      fungsi-fungsi penting saja kepada pengguna.
 </pre>
  </div>
 
@@ -578,11 +528,9 @@ void main() {
     <div class="card">
       <p>
         <pre>
-  Fakta: sejak Dart 3.0 dart punya keyword 
-  interface
-  Cara: Semua interface class adalah implicit interface
-  Gunakan 
-  implements untuk mengimplementasi interface
+  Interface adalah sebuah "kontrak" atau cetak biru yang 
+  menetapkan kemampuan apa saja yang harus dimiliki oleh sebuah kelas.
+  Jika Abstraksi bicara tentang "menyembunyikan detail", maka Interface bicara tentang "standarisasi".
         </pre>
       </p>
 
@@ -683,9 +631,9 @@ void main() {
     <div class="card">
       <ul>
         <li>
-          Properti dan method static sangat berguna untuk membuat utility class
-          atau menyimpan konstanta yang terkait dengan class, sehingga dapat diakses
-          langsung tanpa perlu membuat objek.
+          Prtatic Member (variabel) dan Static Method (fungsi) adalah
+          anggota dari sebuah Class itu sendiri, bukan anggota dari Object
+          (instance) yang dibuat dari class tersebut.
         </li>
       </ul>
 
@@ -762,7 +710,7 @@ void main() {
       </button>
     </div>
 
-    <h2> Studi Kasus: Sistem Bentuk Geometri</h2>
+    <h2> Sistem Bentuk Geometri</h2>
     <div class="card">
       <pre>
 // Nama: Putra Dhafir Nashrullah
@@ -935,7 +883,7 @@ void main() {
         Lihat Kode
       </button>
 
-<h2>Jawaban Soal 4</h2>
+<h2>Jawaban Soal ke 4</h2>
 <pre>
 // Nama: Putra Dhafir Nashrullah
 // Nim: 251410009
