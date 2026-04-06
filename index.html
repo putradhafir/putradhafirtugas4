@@ -4,219 +4,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Polimorfisme dan Abstraksi</title>
+  <title>Polimorfisme dan Abstraksi</title>
 
   <style>
-    /* ===== TEMA AWAN dengan FONT HITAM ===== */
-    body {
-      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 40%, #7dd3fc 100%);
-      font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, 'Inter', sans-serif;
-      color: #000000; /* WARNA FONT UTAMA HITAM */
-      line-height: 1.7;
-      padding: 40px 20px;
-      position: relative;
+    /* ===== TEMA NYAMAN DILIHAT: SOFT NEUTRAL + KONTRAST TINGGI ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* Efek awan halus di background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(circle at 10% 20%, rgba(255,255,245,0.4) 2%, transparent 2.5%),
-                        radial-gradient(circle at 80% 70%, rgba(255,250,240,0.3) 1.5%, transparent 2%);
-      background-size: 55px 55px, 80px 80px;
-      background-repeat: repeat;
-      pointer-events: none;
-      z-index: 0;
+    body {
+      background: #f4f7fc;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1a2c3e;
+      line-height: 1.65;
+      padding: 40px 24px;
     }
 
     .container {
       max-width: 1200px;
-      margin: auto;
-      position: relative;
-      z-index: 2;
+      margin: 0 auto;
     }
 
-    /* TITLE dengan nuansa langit */
+    /* Header / Title */
     h1 {
       text-align: center;
-      font-size: 3rem;
-      letter-spacing: 2px;
+      font-size: 2.4rem;
       font-weight: 700;
-      text-transform: uppercase;
-      background: linear-gradient(135deg, #0f3b5c, #1e6f5c, #2c8f6e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 2px 2px 12px rgba(255,255,200,0.6);
-      margin-bottom: 5px;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      color: #0b3b4f;
     }
 
-    .subtitle {
+    /* subheading untuk NIM dll */
+    .subhead {
       text-align: center;
-      font-family: 'Poppins', monospace;
-      color: #000000;
-      border-bottom: 2px solid #38bdf8;
+      font-size: 1rem;
+      color: #2c5a6e;
+      margin-bottom: 32px;
+      border-bottom: 2px solid #cbdde6;
       display: inline-block;
       width: auto;
-      margin: 0 auto 30px;
-      padding-bottom: 5px;
-      font-size: 1rem;
-      letter-spacing: 1px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 6px;
     }
 
-    .identity {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      border-left: 4px solid #0ea5e9;
-      padding: 12px 18px;
-      border-radius: 20px;
-      font-family: 'Poppins', monospace;
-      margin-bottom: 25px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      color: #000000;
+    /* info bar */
+    .info-bar {
+      background: #ffffffcc;
+      backdrop-filter: blur(4px);
+      border-radius: 28px;
+      padding: 12px 20px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
       font-weight: 500;
+      color: #0f3b4a;
+      border: 1px solid #dce7ef;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .info-bar span {
+      background: #eef3f9;
+      padding: 4px 14px;
+      border-radius: 40px;
     }
 
     h2 {
       font-size: 1.8rem;
-      margin: 40px 0 20px 0;
-      border-left: 6px solid #0ea5e9;
-      padding-left: 15px;
+      margin: 48px 0 20px 0;
       font-weight: 600;
       letter-spacing: -0.3px;
-      color: #000000;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+      color: #155f73;
+      border-left: 5px solid #48b5d0;
+      padding-left: 18px;
     }
 
     h3 {
-      color: #000000;
+      font-size: 1.4rem;
       font-weight: 600;
+      margin-bottom: 12px;
+      color: #1e6f8c;
     }
 
-    /* CARD STYLE: seperti awan putih mengapung */
+    /* Card bersih + bayangan halus */
     .card {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,245,0.8);
-      border-radius: 32px;
-      padding: 25px;
-      margin-bottom: 25px;
-      transition: all 0.3s ease;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 28px 30px;
+      margin-bottom: 28px;
+      transition: all 0.2s ease;
+      border: 1px solid #e2edf2;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.15);
-      border-color: #7dd3fc;
+      border-color: #bfdae6;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05);
     }
 
+    /* Pre / code blocks */
     pre {
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
+      background: #f0f4f8;
+      border: 1px solid #d4e0e8;
       border-radius: 20px;
-      padding: 18px;
-      font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+      padding: 20px;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
       font-size: 13px;
+      line-height: 1.5;
       overflow-x: auto;
       white-space: pre-wrap;
       word-break: break-word;
-      color: #000000;
+      color: #1e2f3c;
       margin: 20px 0;
-      box-shadow: inset 0 1px 3px #0001, 0 2px 6px #0001;
+      box-shadow: inset 0 1px 2px #00000008, 0 2px 4px #00000004;
     }
 
     code {
-      background: #e2e8f0;
+      background: #e6edf2;
       padding: 3px 8px;
       border-radius: 12px;
       font-family: 'JetBrains Mono', monospace;
-      color: #000000;
-      font-weight: 500;
+      font-size: 0.9em;
+      color: #136b7c;
     }
 
-    p, li, ul, ol {
-      color: #000000;
-    }
-
+    /* Tombol bersih */
     .btn {
-      background: linear-gradient(95deg, #ffffff, #f0f9ff);
-      border: 1px solid #38bdf8;
-      color: #0284c7;
+      background: #ffffff;
+      border: 1px solid #b9d4e2;
+      color: #1f6e88;
       padding: 8px 24px;
       border-radius: 40px;
       font-weight: 600;
-      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
       cursor: pointer;
       transition: 0.2s;
-      margin-top: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-top: 12px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     }
 
     .btn:hover {
-      background: #38bdf8;
-      color: white;
-      border-color: #0ea5e9;
-      box-shadow: 0 8px 18px #7dd3fc80;
-      transform: scale(0.98);
+      background: #e6f4fa;
+      border-color: #8bc1d4;
+      color: #0a4c60;
+      transform: translateY(-1px);
     }
 
-    /* table gaya soft */
+    /* Tabel perbandingan */
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
-      background: #f8fafc;
-      border-radius: 24px;
+      background: #f9fdfe;
+      border-radius: 20px;
       overflow: hidden;
-      font-family: 'Poppins', monospace;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      font-family: 'Inter', monospace;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
     }
 
     .comparison-table th {
-      background: #d9f0ff;
-      color: #000000;
+      background: #e1f0f5;
+      color: #144e60;
       font-weight: 700;
       padding: 14px;
-      border-bottom: 2px solid #7dd3fc;
+      border-bottom: 2px solid #c2dae6;
     }
 
     .comparison-table td {
       padding: 12px;
-      border-bottom: 1px solid #b9e2fe;
-      color: #000000;
+      border-bottom: 1px solid #e2edf2;
+      color: #1a3a48;
     }
 
     .badge {
       display: inline-block;
       padding: 2px 12px;
-      border-radius: 30px;
+      border-radius: 40px;
       font-size: 0.7rem;
       font-weight: 600;
     }
 
-    .badge-is-a { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
-    .badge-can-do { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
-    .check { color: #15803d; font-weight: bold; }
-    .cross { color: #b91c1c; font-weight: bold; }
+    .badge-is-a {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
 
+    .badge-can-do {
+      background: #fef9c3;
+      color: #854d0e;
+      border: 1px solid #fde047;
+    }
+
+    .check {
+      color: #15803d;
+      font-weight: bold;
+    }
+
+    .cross {
+      color: #b91c1c;
+      font-weight: bold;
+    }
+
+    /* footer */
     footer {
       margin-top: 60px;
       text-align: center;
-      padding: 20px;
-      border-top: 2px solid #bae6fd;
+      padding: 24px 20px;
+      background: #eef3f8;
+      border-radius: 40px;
       font-size: 14px;
-      color: #000000;
-      background: rgba(255,255,240,0.6);
-      border-radius: 48px;
-      backdrop-filter: blur(4px);
+      color: #2c6072;
+      border: 1px solid #d4e2ea;
     }
 
-    /* MODAL elegan */
+    /* Modal elegan */
     .modal {
       display: none;
       position: fixed;
@@ -225,20 +232,20 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
     }
 
     .modal-content {
-      background: #ffffffea;
+      background: #ffffff;
       width: 90%;
       max-width: 1000px;
       margin: 5% auto;
       border-radius: 40px;
-      border: 1px solid #bae6fd;
+      border: 1px solid #cde3ec;
       padding: 20px;
-      animation: fadeInUp 0.3s ease;
-      box-shadow: 0 25px 40px -12px #00000040;
+      animation: fadeInUp 0.25s ease;
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.2);
     }
 
     .modal iframe {
@@ -249,50 +256,78 @@
     }
 
     .close {
-      color: #0c4a6e;
+      color: #5f8da0;
       float: right;
       font-size: 32px;
-      font-weight: bold;
+      font-weight: 500;
       cursor: pointer;
       transition: 0.2s;
     }
 
     .close:hover {
-      color: #0284c7;
+      color: #1b6c85;
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px);}
-      to { opacity: 1; transform: translateY(0);}
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     hr {
-      margin: 45px 0;
+      margin: 40px 0;
       border: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #7dd3fc, #38bdf8, #7dd3fc, transparent);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #bfdbe8, #8dbdd0, #bfdbe8, transparent);
     }
 
-    .info-card {
-      background: #fefce8;
-      border-left: 5px solid #facc15;
-      padding: 15px;
-      border-radius: 20px;
-      color: #000000;
-    }
-
-    ul, ol {
+    ul,
+    ol {
       padding-left: 1.6rem;
+      margin: 12px 0;
     }
 
     li {
       margin: 6px 0;
-      color: #000000;
+      color: #1a3a48;
     }
 
-    .hint {
-      color: #000000;
-      font-weight: 500;
+    p {
+      margin-bottom: 12px;
+      color: #1e3a4a;
+    }
+
+    .identity {
+      background: #ffffffcc;
+      border-left: 4px solid #48b5d0;
+      padding: 10px 18px;
+      border-radius: 18px;
+      margin-bottom: 24px;
+    }
+
+    /* responsive */
+    @media (max-width: 680px) {
+      body {
+        padding: 20px 16px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -301,9 +336,16 @@
 
   <div class="container">
 
-    <h1> POLIMORFORFIS DAN ABSTRAK</h1>
-    <h1> PUTRA DHAFIRN NASHRULLAH</h1>
-    <h1> NIM :251410009<h1> 
+    <h1>POLIMORFISME DAN ABSTRAKSI</h1>
+    <div style="text-align: center; margin-bottom: 8px;">
+      <div class="subhead">Tugas 4 - Pemrograman Berorientasi Objek</div>
+    </div>
+    <div class="info-bar">
+      <span>📌 Putra Dhafir Nashrullah</span>
+      <span>🆔 251410009</span>
+      <span>📚 Kelas SI2A</span>
+    </div>
+
     <div class="card">
       <ul>
         <li> – Pewarisan
@@ -337,7 +379,7 @@ void main() {
   </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/550525203c872b397e5c6ae2a6a4ced9')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
     </div>
 
@@ -378,11 +420,11 @@ bentuk2.gambar();  // Output: Menggambar persegi
 
       </pre>
        <button class="btn" onclick="openModal('https://dartpad.dev/f86f2246659a2e77a515a65b8cc7abcd')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
     </div>
 
-<h2>  Manfaat Polimorfisme Berikut</h2>
+<h2>Manfaat Polimorfisme</h2>
     <div class="card">
       <ul>
       <li>
@@ -393,11 +435,7 @@ bentuk2.gambar();  // Output: Menggambar persegi
       </li> </ul>
     </div>
 
-
-
-    
-
-    <h2>2.is dan as Operator</h2>
+    <h2>2. is dan as Operator</h2>
     <div class="card">
       <p>
        <ul><li>
@@ -432,11 +470,11 @@ void main() {
   </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/26544b304307ed584b4e734cd27f9723')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
     </div>
 
-    <h2> Praktik 1 </h2>
+    <h2>Praktik 1</h2>
     <div class="card">
     <pre>
 // Nama: Putra Dhafir Nashrullah
@@ -479,14 +517,14 @@ void main() {
 }
     </pre>
   <button class="btn" onclick="openModal('https://dartpad.dev/1ebe066c155e94c737e65c0ebe53a4c7')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
       
     </div>
 
-    <h2> Pengantar Abstraksi</h2>
+    <h2>Pengantar Abstraksi</h2>
     <div class="card">
-<pre> Dalam konsepPemrograman Berorientasi Objek (OOP), 
+<pre> Dalam konsep Pemrograman Berorientasi Objek (OOP), 
       Abstraksi adalah proses penyembunyian detail 
       implementasi yang rumit dan hanya menampilkan 
       fungsi-fungsi penting saja kepada pengguna.
@@ -541,11 +579,11 @@ void main() {
   </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/c9d919487ce75958bf288264ab716373')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
     </div>
 
-    <h2>4.Abstract Method</h2>
+    <h2>4. Abstract Method</h2>
     <div class="card">
       <p>
        <pre>
@@ -583,11 +621,11 @@ void main() {
   </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/48fa9a1afa4b1c8eae76f66253d0391b')">
-       RUN CODE
+       ▶ RUN CODE
       </button>
     </div>
 
-    <h2>5. Interface </h2>
+    <h2>5. Interface</h2>
     <div class="card">
       <p>
         <pre>
@@ -626,24 +664,21 @@ void main() {
   </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/7510a711bb08e5b2ece01998cb8243d7')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
     </div>
 
     <h2>Perbedaan extends vs implements</h2>
-      Gunakan extends jika Anda ingin membuat kelas baru
-      yang merupakan "anak" dari kelas lain 
-      Anda mendapatkan semua fiturnya secara gratis (warisan).
-
-      Gunakan implements jika Anda ingin kelas Anda memiliki "kemampuan"
-      tertentu (seperti printer yang bisa scan,
-      atau mobil yang bisa terbang), tanpa peduli siapa orang tuanya.
+    <div class="card">
+      <p>✅ Gunakan <strong>extends</strong> jika Anda ingin membuat kelas baru yang merupakan "anak" dari kelas lain. Anda mendapatkan semua fiturnya secara gratis (warisan).</p>
+      <p>⚙️ Gunakan <strong>implements</strong> jika Anda ingin kelas Anda memiliki "kemampuan" tertentu (seperti printer yang bisa scan, atau mobil yang bisa terbang), tanpa peduli siapa orang tuanya.</p>
+    </div>
     
     <h2>Static Members dan Method</h2>
     <div class="card">
       <ul>
         <li>
-          Prtatic Member (variabel) dan Static Method (fungsi) adalah
+          Static Member (variabel) dan Static Method (fungsi) adalah
           anggota dari sebuah Class itu sendiri, bukan anggota dari Object
           (instance) yang dibuat dari class tersebut.
         </li>
@@ -667,11 +702,11 @@ print('Result : ${MathUtils.add(10, 20)}');
   </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/9c7431804892ef219516f09f0561930b')">
-       RUN CODE
+       ▶ RUN CODE
       </button>
     </div>
 
-    <h2>Praktik 2 </h2>
+    <h2>Praktik 2</h2>
     <div class="card">
       <pre>
 // Nama: Putra Dhafir Nashrullah
@@ -718,11 +753,11 @@ void main() {
   </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/67f48511fb093af4d7591863c5a1c487')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
     </div>
 
-    <h2> Sistem Bentuk Geometri</h2>
+    <h2>Sistem Bentuk Geometri</h2>
     <div class="card">
       <pre>
 // Nama: Putra Dhafir Nashrullah
@@ -782,13 +817,13 @@ void main() {
   </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/a74f1c3ac868d754db4e267fca14ba1e')">
-       RUN CODE
+       ▶ RUN CODE
       </button>
     </div>
 
     <h2>Latihan</h2>
     <div class="card">
-      <h2>Jawaban Soal nomor 1 sampai 3</h2>
+      <h3>Jawaban Soal nomor 1 sampai 3</h3>
       <pre>
 // Nama: Putra Dhafir Nashrullah
 // Nim: 251410009
@@ -892,10 +927,10 @@ void main() {
   </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/cbd0ff441aafe0e12257a67f62ee3675')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
 
-<h2>Jawaban Soal no 4</h2>
+<h3>Jawaban Soal no 4</h3>
 <pre>
 // Nama: Putra Dhafir Nashrullah
 // Nim: 251410009
@@ -1038,9 +1073,9 @@ void main() {
 </pre>
 
       <button class="btn" onclick="openModal('https://dartpad.dev/e7d755865802c6abe5bcf509767f9708')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
-<h2>Jawaban Soal 5</h2>
+<h3>Jawaban Soal 5</h3>
       <pre>
         
 // Nama: Putra Dhafir Nasdhrullah
@@ -1123,11 +1158,11 @@ void main() {
 }
       </pre>
       <button class="btn" onclick="openModal('https://dartpad.dev/87b498566d4a11d2325de66d1f81a5cc')">
-       RUN CODE
+       ▶ RUN CODE
       </button>
     </div>
 
-    <h2>Challange</h2>
+    <h2>Challenge</h2>
     <div class="card">
       <pre>
 // Nama   : Putra Dhafir Nashrullah
@@ -1213,27 +1248,22 @@ void main() {
 }
       </pre>
       <button class="btn" onclick="openModal('https://dartpad.dev/00f1495e175f2950b67a980213d03b65')">
-        RUN CODE
+        ▶ RUN CODE
       </button>
     </div>
 
     <footer>
-      <h2>Kesimpulan</h2>
-      <pre>
-<p>
-  <pre>
- Polimorfisme memungkinkan kita memperlakukan
- berbagai objek
- yang berbeda melalui antarmuka (interface)atau induk 
- yang sama, di manasetiap objek tetap menjalankan perilakunya 
- masing-masing secara unik.
-     </pre>
-        </p>
+      <h2 style="margin-top: 0; border-left: none; text-align:center;">Kesimpulan</h2>
+      <pre style="background: transparent; border: none; text-align:center; font-size: 0.9rem;">
+Polimorfisme memungkinkan kita memperlakukan berbagai objek
+yang berbeda melalui antarmuka (interface) atau induk yang sama,
+di mana setiap objek tetap menjalankan perilakunya masing-masing secara unik.
+      </pre>
     </footer>
 
   </div>
 
-  <!-- MODAL DINAMIS (Cukup Satu Saja) -->
+  <!-- MODAL -->
   <div id="dynamicModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -1245,23 +1275,19 @@ void main() {
     function openModal(gistId) {
       const modal = document.getElementById("dynamicModal");
       const iframe = document.getElementById("modalIframe");
-
-      // Load link secara otomatis saat diklik
-    iframe.src = `https://dartpad.dev/embed-dart.html?id=${gistId}&null_safety=true&run=true&theme=light`;
+      iframe.src = `https://dartpad.dev/embed-dart.html?id=${gistId}&null_safety=true&run=true&theme=light`;
       modal.style.display = "block";
-      document.body.style.overflow = "hidden"; // Biar ga bisa scroll saat modal buka
+      document.body.style.overflow = "hidden";
     }
 
     function closeModal() {
       const modal = document.getElementById("dynamicModal");
       const iframe = document.getElementById("modalIframe");
-
       modal.style.display = "none";
-      iframe.src = ""; // Bersihkan iframe biar ga berat
+      iframe.src = "";
       document.body.style.overflow = "auto";
     }
 
-    // Klik di luar modal untuk tutup
     window.onclick = function (event) {
       const modal = document.getElementById("dynamicModal");
       if (event.target == modal) closeModal();
