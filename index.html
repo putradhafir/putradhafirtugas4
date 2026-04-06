@@ -1172,75 +1172,37 @@ void main() {
 // Kelas : SI2A
 // ==========================================
 /// CHALLENGE
+        
+abstract class MediaPlayer {
+  void play();
+}
 
-import 'dart:math';
+class AudioPlayer extends MediaPlayer {
+  @override
+  void play() => print('Memutar Audio MP3...');
+}
 
-class MathUtils {
+class VideoPlayer extends MediaPlayer {
+  @override
+  void play() => print('Memutar Video MP4...');
+}
 
-  static Random rand = Random(1);
+class StreamingPlayer extends MediaPlayer {
+  @override
+  void play() => print('Memutar Live Stream...');
+}
 
-  static int faktorial(int n) {
-    if(n <= 1) return 1;
-    return n * faktorial(n-1);
-  }
+class Playlist {
+  List<MediaPlayer> media = [];
 
-  static bool cekPrima(int n) {
-    if(n <= 1) return false;
-    for(int i = 2; i <= sqrt(n); i++) {
-      if(n % i == 0) return false;
-    }
-    return true;
-  }
-
-  static double pembulatan(double angka, int desimal) {
-    double scale = pow(10, desimal).toDouble();
-    return (angka * scale).round() / scale;
-  }
-
-  static int randomInt(int min, int max) {
-    return min + rand.nextInt(max - min + 1);
-  }
-
-  static double rataRata(List list) {
-    int total = list.reduce((a, b) => a + b);
-    return total / list.length;
-  }
-
-  static double median(List list) {
-    List sorted = List.from(list)..sort();
-    int n = sorted.length;
-
-    if(n % 2 == 0) {
-      return (sorted[n ~/ 2 - 1] + sorted[n ~/ 2]) / 2;
-    } else {
-      return sorted[n ~/ 2].toDouble();
-    }
-  }
+  void playAll() => media.forEach((m) => m.play());
 }
 
 void main() {
-  print("=== Utility Math ===");
-  print("Nama  : Putra Dhafir Nashrullah");
-  print("NIM   : 251410009");
-  print("Kelas : SI2A");
-  print("--------------------------------");
-
-  print("Faktorial 5 = ${MathUtils.faktorial(5)}");
-  print("Prima 7 = ${MathUtils.cekPrima(7)}");
-  print("Pembulatan = ${MathUtils.pembulatan(3.14159, 2)}");
-  print("Contoh angka = ${MathUtils.randomInt(1, 10)}");
-  print("Rata-rata = ${MathUtils.rataRata([10, 20, 30, 40, 50])}");
-  print("Median = ${MathUtils.median([10, 20, 30, 40, 50])}");
+  var list = Playlist();
+  list.media = [AudioPlayer(), VideoPlayer(), StreamingPlayer()];
+  list.playAll();
 }
-/*
-Hasil Output:
-Faktorial 5 = 120
-Prima 7 = true
-Pembulatan = 3.14
-contoh angka = 3
-Rata-rata = 30
-Median = 30
-*/
       </pre>
       <button class="btn" onclick="openModal('00f1495e175f2950b67a980213d03b65')">
         ▶ RUN CODE
