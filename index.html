@@ -74,16 +74,29 @@ function showDartPad(id) {
 <body>
 
 <div class="identitas">
-<h2>Yoza Ulpia Rafila | 251410004 | SI2A</h2>
+<h2>Putra Dhafir Nashrullah | 251410009 | SI2A</h2>
 </div>
 
-<h1>Object Oriented Programming (OOP)</h1>
+<h1> POLIMERSIFME DAN ABSTRAKSI</h1>
 
-<!-- TEMPLATE PROGRAM -->
-<!-- COPY INI UNTUK SEMUA -->
+<div class="// Nama : Putra Dhafir Nashrullah
+// NIM  : 251410009
+// Kelas: SI2A
 
-<div class="program">
-<h2>Program 1</h2>
+class Hewan {
+  void bersuara() => print('...');
+}
+
+class Anjing extends Hewan {
+  @override
+  void bersuara() => print('Guk Guk');
+}
+
+void main() {
+  Hewan hewan = Anjing();
+  hewan.bersuara();
+}">
+<h2>PENGERTIAN DARI PEWARISAN </h2>
 <button class="run-btn" onclick="showDartPad('f1')">Run Program</button>
 <iframe id="f1" class="dart-iframe"
 src="https://dartpad.dev/embed-dart.html?id=550525203c872b397e5c6ae2a6a4ced9&run=true&theme=dark"></iframe>
