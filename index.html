@@ -822,104 +822,73 @@ void main() {
 
     <h2>Latihan [11]</h2>
     <div class="card">
-      <h3>Jawaban Soal nomor 1 sampai 3</h3>
+      <h3>BONUS 1 </h3>
       <pre>
 // Nama: Putra Dhafir Nashrullah
 // Nim: 251410009
 // Kelas: SI2A
 
-// Soal 1, 2, 3
+BONUS 1
+        
 abstract class Pekerja {
-  void bekerja();
-  
-  void istirahat() {
-    print('Sedang istirahat...');
-  }
-  
-  void info() {
-    print('Ini adalah seorang pekerja');
-  }
+// Nama : Putra Dhafir Nashrullah 
+// NIM : 251410009
+// Kelas : SI2A
+
+abstract class Pekerja {
+  void bekerja(); // abstract
+}
+
+void info() {
+  print('Ini adalah pekerja');
 }
 
 class Programmer implements Pekerja {
-  String nama;
-  String bahasaPemrograman;
-  
-  Programmer(this.nama, this.bahasaPemrograman);
-  
   @override
   void bekerja() {
-    print('$nama sedang coding dengan Java Script $bahasaPemrograman');
+    print('Programmer sedang coding');
   }
-  
-  @override
-  void istirahat() {
-    print('$nama minum Susu Ultra Milk sambil ngoding');
-  }
-  
+
   @override
   void info() {
-    print('$nama adalah seorang Programmer Profesional Kelas 1');
+    print('Pekerja: Programmer');
   }
 }
 
 class Dokter implements Pekerja {
-  String nama;
-  String spesialis;
-  
-  Dokter(this.nama, this.spesialis);
-  
   @override
   void bekerja() {
-    print('$nama sedang memeriksa pasien di ruangan 5 $spesialis');
+    print('Dokter sedang memeriksa pasien');
   }
-  
-  @override
-  void istirahat() {
-    print('$nama istirahat di ruang dokter nomor 3');
-  }
-  
+
   @override
   void info() {
-    print('$nama adalah seorang Dokter Sarjana Kesehatan $spesialis');
+    print('Pekerja: Dokter');
   }
 }
 
 class Guru implements Pekerja {
-  String nama;
-  String mataPelajaran;
-  
-  Guru(this.nama, this.mataPelajaran);
-  
   @override
   void bekerja() {
-    print('$nama sedang mengajar di ruangan $mataPelajaran');
+    print('Guru sedang mengajar');
   }
-  
-  @override
-  void istirahat() {
-    print('$nama istirahat di ruang guru di lantai 2');
-  }
-  
+
   @override
   void info() {
-    print('$nama adalah seorang Guru Magister $mataPelajaran');
+    print('Pekerja: Guru');
   }
 }
 
 void main() {
-  print('========== SOAL 1,2,3 ==========');
-  
-  List daftarPekerja = [
-    Programmer('Gram', 'Dart'),
-    Dokter('Excalibur', 'Jantung'),
-    Guru('Diana', 'Matematika'),
+  List daftar = [
+    Programmer(),
+    Dokter(),
+    Guru(),
   ];
-  
-  for (var pekerja in daftarPekerja) {
-    pekerja.info();
-    pekerja.bekerja();
-    pekerja.istirahat();
+
+  for (var p in daftar) {
+    p.info();
+    p.bekerja();
     print('---');
   }
 }
@@ -930,7 +899,7 @@ void main() {
         ▶ RUN CODE
       </button>
 
-<h3>Jawaban Soal no 4 [12]</h3>
+<h3> BONUS 2 [12]</h3>
 <pre>
 // Nama: Putra Dhafir Nashrullah
 // Nim: 251410009
@@ -1048,7 +1017,7 @@ class Tablet implements Komputer, Kamera, Telepon {
 }
 
 void main() {
-  print('========== SOAL 4 ==========');
+  print('========== BONUS 2==========');
   
   Tablet tablet = Tablet(
     nama: 'iPad Pro',
@@ -1075,13 +1044,13 @@ void main() {
       <button class="btn" onclick="openModal('e7d755865802c6abe5bcf509767f9708')">
         ▶ RUN CODE
       </button>
-<h3>Jawaban Soal 5 [13]</h3>
+<h3> BONUS 3[13]</h3>
       <pre>
         
 // Nama: Putra Dhafir Nasdhrullah
 // Nim: 251410009
 // Kelas: SI2A
-        // Soal 5
+        // BONUS 3
 class MathUtils {
   static int factorial(int n) {
     if (n < 0) throw ArgumentError('Tidak bisa menghitung faktorial bilangan negatif');
