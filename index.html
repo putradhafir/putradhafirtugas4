@@ -824,73 +824,35 @@ void main() {
     <div class="card">
       <h3>BONUS 1 </h3>
       <pre>
-// Nama: Putra Dhafir Nashrullah
-// Nim: 251410009
-// Kelas: SI2A
 
 BONUS 1
         
-abstract class Pekerja {
 // Nama : Putra Dhafir Nashrullah 
-// NIM : 251410009
-// Kelas : SI2A
+// Nim : 25141009
+// Kelas : Si2A
 
 abstract class Pekerja {
-  void bekerja(); // abstract
+  void bekerja();
 }
 
-void info() {
-  print('Ini adalah pekerja');
+class Programmer extends Pekerja {
+  @override
+  void bekerja() => print('Programmer: Sedang menulis kode Dart.');
 }
 
-class Programmer implements Pekerja {
+class Dokter extends Pekerja {
   @override
-  void bekerja() {
-    print('Programmer sedang coding');
-  }
-
-  @override
-  void info() {
-    print('Pekerja: Programmer');
-  }
+  void bekerja() => print('Dokter: Sedang memeriksa pasien.');
 }
 
-class Dokter implements Pekerja {
+class Guru extends Pekerja {
   @override
-  void bekerja() {
-    print('Dokter sedang memeriksa pasien');
-  }
-
-  @override
-  void info() {
-    print('Pekerja: Dokter');
-  }
-}
-
-class Guru implements Pekerja {
-  @override
-  void bekerja() {
-    print('Guru sedang mengajar');
-  }
-
-  @override
-  void info() {
-    print('Pekerja: Guru');
-  }
+  void bekerja() => print('Guru: Sedang mengajar di kelas.');
 }
 
 void main() {
-  List daftar = [
-    Programmer(),
-    Dokter(),
-    Guru(),
-  ];
-
-  for (var p in daftar) {
-    p.info();
-    p.bekerja();
-    print('---');
-  }
+  List<Pekerja> daftar = [Programmer(), Dokter(), Guru()];
+  for (var p in daftar) p.bekerja();
 }
 
   </pre>
@@ -924,7 +886,36 @@ class Komputer {
     print('Menjalankan $program di komputer $merk');
   }
 }
+// Nama : Putra Dhafir Nashrullah 
+// Nim : 251410009
+// Kelas : Si2A
 
+class Komputer {
+  void boot() => print('Komputer melakukan booting');
+}
+
+abstract class Kamera {
+  void foto();
+}
+
+abstract class Telepon {
+  void call();
+}
+
+class Tablet extends Komputer implements Kamera, Telepon {
+  @override
+  void foto() => print('Tablet: Ambil foto dengan resolusi tinggi.');
+
+  @override
+  void call() => print('Tablet: Melakukan panggilan video.');
+}
+
+void main() {
+  var myTab = Tablet();
+  myTab.boot();
+  myTab.foto();
+  myTab.call();
+}
 class Kamera {
   int megapixel;
   String lensa;
@@ -949,96 +940,7 @@ class Telepon {
   void menelepon(String tujuan) {
     print('Menelepon $tujuan dari nomor $nomor');
   }
-  
-  void mengirimPesan(String tujuan, String pesan) {
-    print('Mengirim pesan ke $tujuan: $pesan');
-  }
-}
 
-class Tablet implements Komputer, Kamera, Telepon {
-  String nama;
-  String merk;
-  String processor;
-  int ram;
-  int megapixel;
-  String lensa;
-  String nomor;
-  String provider;
-  
-  Tablet({
-    required this.nama,
-    required this.merk,
-    required this.processor,
-    required this.ram,
-    required this.megapixel,
-    required this.lensa,
-    required this.nomor,
-    required this.provider,
-  });
-  
-  @override
-  void menyalakan() {
-    print('Tablet $nama ($merk) menyala');
-  }
-  
-  @override
-  void mematikan() {
-    print('Tablet $nama ($merk) mati');
-  }
-  
-  @override
-  void menjalankanProgram(String program) {
-    print('Menjalankan $program di tablet $nama');
-  }
-  
-  @override
-  void mengambilFoto() {
-    print('Tablet $nama mengambil foto dengan kamera $megapixel MP');
-  }
-  
-  @override
-  void merekamVideo() {
-    print('Tablet $nama merekam video dengan lensa $lensa');
-  }
-  
-  @override
-  void menelepon(String tujuan) {
-    print('Tablet $nama menelepon $tujuan dari nomor $nomor ($provider)');
-  }
-  
-  @override
-  void mengirimPesan(String tujuan, String pesan) {
-    print('Tablet $nama mengirim pesan ke $tujuan: $pesan');
-  }
-  
-  void sentuhLayar() {
-    print('Menyentuh layar tablet $nama');
-  }
-}
-
-void main() {
-  print('========== BONUS 2==========');
-  
-  Tablet tablet = Tablet(
-    nama: 'iPad Pro',
-    merk: 'Apple',
-    processor: 'M2',
-    ram: 16,
-    megapixel: 12,
-    lensa: 'Wide',
-    nomor: '08123456789',
-    provider: 'Telkomsel',
-  );
-  
-  tablet.menyalakan();
-  tablet.menjalankanProgram('Photoshop');
-  tablet.mengambilFoto();
-  tablet.merekamVideo();
-  tablet.menelepon('08123456788');
-  tablet.mengirimPesan('08123456788', 'Halo dari tablet!');
-  tablet.sentuhLayar();
-  tablet.mematikan();
-}
 </pre>
 
       <button class="btn" onclick="openModal('e7d755865802c6abe5bcf509767f9708')">
