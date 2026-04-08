@@ -838,54 +838,6 @@ abstract class Pekerja {
 class Programmer extends Pekerja {
   @override
   void bekerja() => print('Programmer: Sedang menulis kode Dart.');
-}
-
-class Dokter extends Pekerja {
-  @override
-  void bekerja() => print('Dokter: Sedang memeriksa pasien.');
-}
-
-class Guru extends Pekerja {
-  @override
-  void bekerja() => print('Guru: Sedang mengajar di kelas.');
-}
-
-void main() {
-  List<Pekerja> daftar = [Programmer(), Dokter(), Guru()];
-  for (var p in daftar) p.bekerja();
-}
-
-  </pre>
-
-      <button class="btn" onclick="openModal('cbd0ff441aafe0e12257a67f62ee3675')">
-        ▶ RUN CODE
-      </button>
-
-<h3> BONUS 2 [12]</h3>
-<pre>
-// Nama: Putra Dhafir Nashrullah
-// Nim: 251410009
-// Kelas: SI2A
-  // Soal 4
-class Komputer {
-  String merk;
-  String processor;
-  int ram;
-  
-  Komputer(this.merk, this.processor, this.ram);
-  
-  void menyalakan() {
-    print('Komputer $merk menyala');
-  }
-  
-  void mematikan() {
-    print('Komputer $merk mati');
-  }
-  
-  void menjalankanProgram(String program) {
-    print('Menjalankan $program di komputer $merk');
-  }
-}
 // Nama : Putra Dhafir Nashrullah 
 // Nim : 251410009
 // Kelas : Si2A
@@ -915,31 +867,32 @@ void main() {
   myTab.boot();
   myTab.foto();
   myTab.call();
-}
-class Kamera {
-  int megapixel;
-  String lensa;
-  
-  Kamera(this.megapixel, this.lensa);
-  
-  void mengambilFoto() {
-    print('Mengambil foto dengan kamera $megapixel MP');
-  }
-  
-  void merekamVideo() {
-    print('Merekam video dengan lensa $lensa');
-  }
+}}
+
+class Dokter extends Pekerja {
+  @override
+  void bekerja() => print('Dokter: Sedang memeriksa pasien.');
 }
 
-class Telepon {
-  String nomor;
-  String provider;
-  
-  Telepon(this.nomor, this.provider);
-  
-  void menelepon(String tujuan) {
-    print('Menelepon $tujuan dari nomor $nomor');
-  }
+class Guru extends Pekerja {
+  @override
+  void bekerja() => print('Guru: Sedang mengajar di kelas.');
+}
+
+void main() {
+  List<Pekerja> daftar = [Programmer(), Dokter(), Guru()];
+  for (var p in daftar) p.bekerja();
+}
+
+  </pre>
+
+      <button class="btn" onclick="openModal('cbd0ff441aafe0e12257a67f62ee3675')">
+        ▶ RUN CODE
+      </button>
+
+<h3> BONUS 2 [12]</h3>
+<pre>
+
 
 </pre>
 
