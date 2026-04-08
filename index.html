@@ -849,17 +849,17 @@ class Programmer implements Pekerja {
   
   @override
   void bekerja() {
-    print('$nama sedang coding dengan $bahasaPemrograman');
+    print('$nama sedang coding dengan Java Script $bahasaPemrograman');
   }
   
   @override
   void istirahat() {
-    print('$nama minum kopi sambil ngoding');
+    print('$nama minum Susu Ultra Milk sambil ngoding');
   }
   
   @override
   void info() {
-    print('$nama adalah seorang Programmer');
+    print('$nama adalah seorang Programmer Profesional Kelas 1');
   }
 }
 
@@ -871,17 +871,17 @@ class Dokter implements Pekerja {
   
   @override
   void bekerja() {
-    print('$nama sedang memeriksa pasien $spesialis');
+    print('$nama sedang memeriksa pasien di ruangan 5 $spesialis');
   }
   
   @override
   void istirahat() {
-    print('$nama istirahat di ruang dokter');
+    print('$nama istirahat di ruang dokter nomor 3');
   }
   
   @override
   void info() {
-    print('$nama adalah seorang Dokter $spesialis');
+    print('$nama adalah seorang Dokter Sarjana Kesehatan $spesialis');
   }
 }
 
@@ -893,27 +893,27 @@ class Guru implements Pekerja {
   
   @override
   void bekerja() {
-    print('$nama sedang mengajar $mataPelajaran');
+    print('$nama sedang mengajar di ruangan $mataPelajaran');
   }
   
   @override
   void istirahat() {
-    print('$nama istirahat di ruang guru');
+    print('$nama istirahat di ruang guru di lantai 2');
   }
   
   @override
   void info() {
-    print('$nama adalah seorang Guru $mataPelajaran');
+    print('$nama adalah seorang Guru Magister $mataPelajaran');
   }
 }
 
 void main() {
   print('========== SOAL 1,2,3 ==========');
   
-  List<Pekerja> daftarPekerja = [
-    Programmer('Andi', 'Dart'),
-    Dokter('Budi', 'Jantung'),
-    Guru('Citra', 'Matematika'),
+  List daftarPekerja = [
+    Programmer('Gram', 'Dart'),
+    Dokter('Excalibur', 'Jantung'),
+    Guru('Diana', 'Matematika'),
   ];
   
   for (var pekerja in daftarPekerja) {
@@ -923,6 +923,7 @@ void main() {
     print('---');
   }
 }
+
   </pre>
 
       <button class="btn" onclick="openModal('cbd0ff441aafe0e12257a67f62ee3675')">
