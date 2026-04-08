@@ -1056,17 +1056,14 @@ void main() {
         ▶ RUN CODE
       </button>
         
- <h2> Utility Math Bonus 5 [15]</h2>
-    <div class="card">
+ <h3>BONUS 5 Utility Math [15]</h3>
       <h3>Kumpulan fungsi matematika statis seperti faktorial, prima, rata-rata, dan median. </h3>
       <pre>
+  
 
-BONUS 5 [15]
-
-
-// Name    : Putra Dhafir Nashrullah 
-// Nim     : 251410009
-// Kelas   : Si2A
+  // Nama : Putra Dhafir Nashrullah 
+// NIM : 251410009
+// Kelas : SI2A
 
 import 'dart:math';
 
@@ -1075,31 +1072,47 @@ class MathUtils {
 
   static bool isPrime(int n) {
     if (n < 2) return false;
-    // Perbaikan di sini: sqrt membutuhkan double
-    for (int i = 2; i <= sqrt(n.toDouble()); i++) 
+    // Perbaikan: sqrt membutuhkan double, lalu konversi balik ke int
+    int limit = sqrt(n.toDouble()).toInt();
+    for (int i = 2; i <= limit; i++) 
       if (n % i == 0) return false;
     return true;
   }
 
-  static double round(double val, int places) =>
+  static double roundDouble(double val, int places) =>
     double.parse(val.toStringAsFixed(places));
 
   static int randomInt(int min, int max) => 
     min + Random().nextInt(max - min + 1);
 
-  static double average(List<double> nums) => 
+  // PERBAIKAN: tambahkan tipe data spesifik
+  static double average(List<num> nums) => 
     nums.isEmpty ? 0 : nums.reduce((a, b) => a + b) / nums.length;
 
-  static double median(List<double> nums) {
+  // PERBAIKAN: tambahkan tipe data spesifik
+  static double median(List<num> nums) {
     if (nums.isEmpty) return 0;
-    var s = List.from(nums)..sort();
+    var s = List<num>.from(nums)..sort();
     int m = s.length ~/ 2;
-    return s.length % 2 != 0 ? s[m].toDouble() : (s[m - 1] + s[m]) / 2.0;
+    return s.length % 2 != 0 
+        ? s[m].toDouble() 
+        : (s[m - 1] + s[m]) / 2.0;
   }
 }
 
-  </pre>
-
+// Contoh penggunaan
+void main() {
+  print('Factorial 5: ${MathUtils.factorial(5)}');
+  print('Is 17 prime? ${MathUtils.isPrime(17)}');
+  print('Round 3.14159 to 2 decimals: ${MathUtils.roundDouble(3.14159, 2)}');
+  print('Random int (1-10): ${MathUtils.randomInt(1, 10)}');
+  
+  List<num> nilai = [70, 85, 90, 75, 80, 95];
+  print('Average: ${MathUtils.average(nilai)}');
+  print('Median: ${MathUtils.median(nilai)}');
+}
+  
+</pre>
     <h2>Challenge Tugas [16]</h2>
     <div class="card">
       <pre>
